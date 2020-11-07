@@ -1,0 +1,36 @@
+<h3>Server list</h3>
+<hr>
+<form>
+  <input
+    class="form-control"
+    type="text"
+    name="serverName"
+    [(ngModel)]="serverName">
+  <button
+    class="btn btn-primary"
+    type="submit"
+    (click)="onAddPressed()">
+      Add
+  </button>
+</form>
+<p *ngIf="pressed; else elseBlock">Button pressed!</p>
+<ng-template #elseBlock>Button not Pressed!</ng-template>
+<hr>
+<p
+  [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: value === 'online'}">
+    Count >= 5?
+</p>
+<div [ngSwitch]="count">
+  <p *ngSwitchCase="1">Pressed once!</p>
+  <p *ngSwitchCase="5">Pressed x5!</p>
+  <p *ngSwitchCase="10">Pressed x10!</p>
+  <p *ngSwitchDefault>Not pressed!</p>
+</div>
+<hr>
+<h3 *ngFor="let server of serverArray">
+  <p>{{server}}</p>
+  <button class="btn btn-danger" type="button">Delete</button>
+</h3>
+<!-- <app-server></app-server> -->
+
